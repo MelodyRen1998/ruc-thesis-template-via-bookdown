@@ -1,0 +1,137 @@
+% XeLaTeX can use any Mac OS X font. See the setromanfont command below.
+% Input to XeLaTeX is full Unicode, so Unicode characters can be typed directly into the source.
+
+% The next lines tell TeXShop to typeset with xelatex, and to open and save the source with Unicode encoding.
+
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper,bachelor]{ructhesis}
+
+%自添宏包
+\usepackage{skak}%国际象棋
+\usepackage{subfigure}%子图http://www.ctex.org/documents/latex/graphics/node111.html
+\usepackage{chemfig}%化学式
+\usepackage{extarrows}%长等号
+%\usepackage{subfig}%并列图片
+\usetikzlibrary{trees}
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+%将封面信息补全
+
+%文头
+\sign{中国人民大学本科毕业论文}
+% $if(documenttype.bachelor)$  \sign{中国人民大学本科毕业论文} $endif$
+% $if(documenttype.premaster)$ \sign{中国人民大学硕士学位论文} $endif$
+% $if(documenttype.master)$    \sign{中国人民大学硕士学位论文} $endif$
+% $if(documenttype.doctor)$    \sign{中国人民大学博士学位论文} $endif$
+
+% 以下信息本科研究生都需要补全
+\title{$title$} %论文题名，论文的正标题
+\author{$author$} %论文作者姓名
+\school{$baseinfo.school$} %论文作者所在学院的全称
+\field{$baseinfo.field$} %论文作者所学专业的全称；相关专业名称过长的请在文字前添加命令\ziju{-0.15}
+\studentid{$baseinfo.studentid$} %论文作者的学号
+\advisor{$baseinfo.advisor$} %指导老师的亲笔签名
+\date{$baseinfo.date$} %论文小组评阅或答辩日期
+
+
+% 以下本科填写
+\grade{$baseinfo.grade$} %论文作者所在年级，如：2014级。
+\score{$baseinfo.score$} %由学院毕业论文评审小组或学院毕业论文答辩委员会最终确认的毕业论文成绩
+\thesiscode{$baseinfo.thesiscode$} %论文编码由学校代码、类别代码、专业代码、学号组成，专业代码详见教务处网站文件下载区。例如：RUC-BK-050101-2014201237。
+\subtitle{$baseinfo.subtitle$} %本项目为任选项目，指论文的副标题，即对论文题名的解释或补充说明
+
+
+%以下研究生填写
+
+\etitle{LaTeX template of Renmin university of China}%英文题目
+\keywords{\TeX{}}%论文主题词
+
+%摘要关键词：本科研究生都需要填写！
+$if(baseinfo.keywordzh)$
+\keywordzh{
+$for(baseinfo.keywordzh)$
+$baseinfo.keywordzh$ \qquad
+$endfor$
+} %中文摘要关键词，词间间隔3格，用{ }{ }{ }实现，方法不唯一
+$endif$
+
+
+$if(baseinfo.keyworden)$
+\keyworden{
+$for(baseinfo.keyworden)$
+$baseinfo.keyworden$ \qquad
+$endfor$
+} %外文摘要关键词，互相之间间隔3格
+$endif$
+
+$for(include-before)$
+$include-before$
+$endfor$
+
+%
+\begin{document}
+
+%扉页
+\maketitle
+
+%独创性声明
+%\originality %本科不需要
+%授权书在这插入
+%\authorization{figures/shouquan.png} %本科不需要
+%中文摘要
+\include{latex/zh-abstract}
+%英文摘要
+\include{latex/en-abstract}
+
+
+\frontmatter
+
+%正文目录
+\tableofcontents
+%插图目录
+\listoffigures
+%表格目录
+\listoftables
+
+
+\mainmatter\clearpage
+\pagestyle{fancy}
+
+%正文章节
+% \include{chap/chapter1}
+% \include{chap/chapter2}
+% \include{chap/chapter3}
+% \input{chap/chapter4} %要插入本科签名的最后一个章节,插入命令使用\input
+$body$
+
+\newpage 
+
+%本科签名
+\autograph
+
+
+%参考文献
+\bibliographystyle{ref/rucbib}
+\setcitestyle{super,square,comma,sort&compress}
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+\nocite{*}
+\addcontentsline{toc}{chapter}{参考文献}
+
+%附录
+\appendix
+\include{latex/appendix}
+
+%致谢
+\include{latex/acknowledge}
+
+
+$for(include-after)$
+$include-after$
+$endfor$
+
+\end{document}

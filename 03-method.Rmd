@@ -1,0 +1,9 @@
+# 研究方法
+
+插入一个pdf文件（图片文件），使得其宽度为页面左右边距：
+
+```{r fig.cap='中英文校徽', out.width="100%"}
+knitr::include_graphics('figures/logo.pdf', auto_pdf=TRUE)
+```
+
+We describe our methods in this chapter.

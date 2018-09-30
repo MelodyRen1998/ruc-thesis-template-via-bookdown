@@ -1,0 +1,89 @@
+# 一些应用例子
+
+Some _significant_ applications are demonstrated in this chapter.
+
+## 应用一：并列图片&表格设置
+
+插入并列的图片：
+
+\begin{figure}
+
+\begin{minipage}[t]{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/logo}
+  \caption{我是左边的图}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/logo}
+  \caption{我是右边的图}
+\end{minipage}
+
+\end{figure}
+
+插入并列的表格：
+
+\begin{table}
+\begin{minipage}{0.5\textwidth}
+  \centering
+  \caption{\label{tab:t2}左边的 table}
+  \begin{tabular}{c|c|c}
+    \hline
+    A & B & C \\
+    \hline
+    1 & 2 & 3  \\
+    \hline
+    4 & 5 & 6 \\
+    \hline
+  \end{tabular}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \centering
+  \caption{\label{tab:t2}右边的 table}
+  \begin{tabular}{c|c|c}
+    \hline
+    A & B & C \\
+    \hline
+    1 & 2 & 3  \\
+    \hline
+    4 & 5 & 6 \\
+    \hline
+  \end{tabular}
+\end{minipage}
+\end{table}
+
+是的，这个图和表好像会乱跑，但是有caption就可以直接通过图表目录的链接来查看。
+
+## 应用二：数学环境
+
+插入^[添加一个解释说明的脚注]数学公式：
+
+$$
+\begin{aligned}
+P\{S_n \leq t\}
+&= \int_{-\infty}^{+\infty}f_{S_n}dt \notag \\
+&= \int_0^t\frac{\lambda(\lambda u)^{n-1}}{(n-1)!}e^{-\lambda u}du \\
+&\xlongequal{\lambda u=x} \frac{1}{(n-1)!}\int_0^{\lambda t}x^{n-1}e^{-x}dx\\
+&=\frac{-1}{(n-1)!}(e^{-x}x^{n-1}{\Big|}_0^{\lambda t}-\int_0^{\lambda t}e^{-x}dx^{n-1})\\
+&=\frac{-1}{(n-1)!}e^{-x}x^{n-1}{\Big|}_0^{\lambda t}+\frac{1}{(n-2)!}\int_0^{\lambda t}e^{-x}x^{n-2}dx
+\end{aligned}
+$$
+
+可以再插入一个数学公式^[第二个脚注]：
+
+$$    
+\begin{aligned}
+\lambda 
+&=\left (1+\frac{\left(\frac{\bar{X}-\bar{Y}}{\sqrt{((\frac{1}{n}+\frac{1}{m})\sigma^2)}}\right)^2}{\left(\sqrt{\frac{\sum\limits_{i=1}^n(X_i-\bar{X})^2+\sum\limits_{i=1}^m(Y_i-\bar{Y})^2}{(m+n)\sigma^2}}\right)^2(m+n-2)}\right)^{\frac{n+m}{2}} \\ \notag
+&=\left(1+\frac{T^2}{n+m-2}\right)^{\frac{n+m}{2}}
+\end{aligned}
+$$
+
+其中，
+
+$$
+\begin{aligned}
+\quad T^2 
+&=\left(\frac{\frac{\bar{X}-\bar{Y}}{\sqrt{((\frac{1}{n}+\frac{1}{m})\sigma^2)}}}{{\sqrt{\frac{\sum\limits_{i=1}^n(X_i-\bar{X})^2+\sum\limits_{i=1}^m(Y_i-\bar{Y})^2}{(m+n)\sigma^2}}}}\right)^2
+\end{aligned}
+$$
