@@ -1,15 +1,21 @@
---- 
+---
 title: "论贸易战对中国未来经济的影响"
 author: "yimeng"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-# 文档类型. 专硕: documenttype.premaster, documenttype.master, documenttype.doctor
-documenttype.bachelor: true
+# 文档类型:
+# 本科: document-bachelor: true
+# 专硕: document-premaster: true
+# 硕士: document-master: true
+# 博士: document-doctor: true
+document-bachelor: true
+abstract-zh: "中文摘要: RUCThesis 是根据中国人民大学《本科论文指导手册》和《研究生学位论文及其摘要的撰写和印制要求》而制作的 \\LaTeX\\ 论文模板。"
+abstract-en: "This is a English abstract."
 baseinfo:
   subtitle: "基于统计模拟的经济学预测方法"
   studentid: "20163160102"
-  school: "统计学院" 
+  school: "统计学院"
   field: "经济统计学"
   advisor: "yalei"
   grade: ""
@@ -18,9 +24,8 @@ baseinfo:
   date: "`r Sys.Date()`"
   keywordzh: ["贸易战", "经济"]
   keyworden: ["Trade War", "Economics"]
-# keyworden: "`r paste0(c('Economics', 'Trade War'), collapse='\\qquad')`"
-masterinfo:  # 研究生，设置英文标题和主题词
-  etitle: "English Title"
+masterinfo:  # 研究生，设置英文标题和主题词, 本科生不需要填写
+  etitle: "LaTeX template of Renmin university of China"
   keywords: "Keywords 论文主题词"
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike

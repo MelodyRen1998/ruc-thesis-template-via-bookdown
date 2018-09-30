@@ -23,11 +23,10 @@ $endfor$
 %将封面信息补全
 
 %文头
-\sign{中国人民大学本科毕业论文}
-% $if(documenttype.bachelor)$  \sign{中国人民大学本科毕业论文} $endif$
-% $if(documenttype.premaster)$ \sign{中国人民大学硕士学位论文} $endif$
-% $if(documenttype.master)$    \sign{中国人民大学硕士学位论文} $endif$
-% $if(documenttype.doctor)$    \sign{中国人民大学博士学位论文} $endif$
+$if(document-bachelor)$  \sign{中国人民大学本科毕业论文} $endif$
+$if(document-premaster)$ \sign{中国人民大学硕士学位论文} $endif$
+$if(document-master)$    \sign{中国人民大学硕士学位论文} $endif$
+$if(document-doctor)$    \sign{中国人民大学博士学位论文} $endif$
 
 % 以下信息本科研究生都需要补全
 \title{$title$} %论文题名，论文的正标题
@@ -46,10 +45,16 @@ $endfor$
 \subtitle{$baseinfo.subtitle$} %本项目为任选项目，指论文的副标题，即对论文题名的解释或补充说明
 
 
-%以下研究生填写
-
-\etitle{LaTeX template of Renmin university of China}%英文题目
-\keywords{\TeX{}}%论文主题词
+%以下研究生填写 本科生不需要填写
+$if(document-bachelor)$
+$else$
+$if(masterinfo.etitle)$
+\etitle{$masterinfo.etitle$} %英文题目
+$endif$
+$if(masterinfo.keywords)$
+\keywords{\TeX{$masterinfo.keywords$}}%论文主题词
+$endif$
+$endif$
 
 %摘要关键词：本科研究生都需要填写！
 $if(baseinfo.keywordzh)$
@@ -79,14 +84,27 @@ $endfor$
 %扉页
 \maketitle
 
-%独创性声明
-%\originality %本科不需要
-%授权书在这插入
-%\authorization{figures/shouquan.png} %本科不需要
+$if(document-bachelor)$
+$else$
+\originality %独创性声明, 本科不需要
+% \authorization{figures/shouquan.png} %授权书在这插入, 本科不需要
+$endif$
+
 %中文摘要
-\include{latex/zh-abstract}
+% \include{latex/zh-abstract}
+$if(abstract-zh)$
+\begin{abstractzh}
+  $abstract-zh$
+\end{abstractzh}
+$endif$
+
 %英文摘要
-\include{latex/en-abstract}
+% \include{latex/en-abstract}
+$if(abstract-en)$
+\begin{abstracten}
+  $abstract-en$
+\end{abstracten}
+$endif$
 
 
 \frontmatter
@@ -103,13 +121,9 @@ $endfor$
 \pagestyle{fancy}
 
 %正文章节
-% \include{chap/chapter1}
-% \include{chap/chapter2}
-% \include{chap/chapter3}
-% \input{chap/chapter4} %要插入本科签名的最后一个章节,插入命令使用\input
 $body$
 
-\newpage 
+\newpage
 
 %本科签名
 \autograph

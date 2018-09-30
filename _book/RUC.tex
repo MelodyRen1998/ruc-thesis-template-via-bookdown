@@ -61,11 +61,10 @@
 %将封面信息补全
 
 %文头
-\sign{中国人民大学本科毕业论文}
-% 
-% 
-% 
-% 
+  \sign{中国人民大学本科毕业论文} 
+
+
+
 
 % 以下信息本科研究生都需要补全
 \title{论贸易战对中国未来经济的影响} %论文题名，论文的正标题
@@ -84,10 +83,7 @@
 \subtitle{基于统计模拟的经济学预测方法} %本项目为任选项目，指论文的副标题，即对论文题名的解释或补充说明
 
 
-%以下研究生填写
-
-\etitle{LaTeX template of Renmin university of China}%英文题目
-\keywords{\TeX{}}%论文主题词
+%以下研究生填写 本科生不需要填写
 
 %摘要关键词：本科研究生都需要填写！
 \keywordzh{
@@ -122,14 +118,20 @@ Economics \qquad
 %扉页
 \maketitle
 
-%独创性声明
-%\originality %本科不需要
-%授权书在这插入
-%\authorization{figures/shouquan.png} %本科不需要
+
 %中文摘要
-\include{latex/zh-abstract}
+% \include{latex/zh-abstract}
+\begin{abstractzh}
+  中文摘要: RUCThesis
+  是根据中国人民大学《本科论文指导手册》和《研究生学位论文及其摘要的撰写和印制要求》而制作的
+  \LaTeX~论文模板。
+\end{abstractzh}
+
 %英文摘要
-\include{latex/en-abstract}
+% \include{latex/en-abstract}
+\begin{abstracten}
+  This is a English abstract.
+\end{abstracten}
 
 
 \frontmatter
@@ -146,11 +148,8 @@ Economics \qquad
 \pagestyle{fancy}
 
 %正文章节
-% \include{chap/chapter1}
-% \include{chap/chapter2}
-% \include{chap/chapter3}
-% \input{chap/chapter4} %要插入本科签名的最后一个章节,插入命令使用\input
-\chapter{bookdown介绍}\label{bookdown}
+\hypertarget{bookdown}{%
+\chapter{bookdown介绍}\label{bookdown}}
 
 This is a \emph{sample} book written in \textbf{Markdown}. You can use
 anything that Pandoc's Markdown supports, e.g., a math equation
@@ -179,7 +178,8 @@ install TinyTeX (which includes XeLaTeX):
 \href{https://yihui.name/tinytex/}{这个网站}
 安装TinyTex，它是包含XeLaTex的。
 
-\chapter{引言}\label{intro}
+\hypertarget{intro}{%
+\chapter{引言}\label{intro}}
 
 You can label chapter and section titles using \texttt{\{\#label\}}
 after them, e.g., we can reference Chapter \ref{intro}. If you do not
@@ -191,7 +191,7 @@ Figures and tables with captions will be placed in \texttt{figure} and
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar =} \KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, .}\DecValTok{1}\NormalTok{, .}\DecValTok{1}\NormalTok{))}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar =} \KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\FloatTok{.1}\NormalTok{, }\FloatTok{.1}\NormalTok{))}
 \KeywordTok{plot}\NormalTok{(pressure, }\DataTypeTok{type =} \StringTok{'b'}\NormalTok{, }\DataTypeTok{pch =} \DecValTok{19}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -375,7 +375,7 @@ P\{S_n \leq t\}
 
 写完啦！
 
-\newpage 
+\newpage
 
 %本科签名
 \autograph
