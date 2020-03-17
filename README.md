@@ -15,9 +15,14 @@ system2('tlmgr install simplekv')
 system2('tlmgr install pgf')
 ```
 
-## Thesis 
+## Fonts
 
-Set the basic infomation in the `index.Rmd` file.
+The latex files in this project are copied from [GH1995/RUC-thesis-template-for-LaTeX](https://github.com/GH1995/RUC-thesis-template-for-LaTeX). 
+You need to install some fonts from [here](https://github.com/GH1995/RUC-thesis-template-for-LaTeX#%E5%AD%97%E4%BD%93%E6%96%87%E4%BB%B6).
+
+# Thesis template
+
+Set the basic infomation in the `index.Rmd` file. Edit the other `*.Rmd` files as you please.
 
 ```yaml
 title: "论贸易战对中国未来经济的影响"
@@ -48,9 +53,9 @@ masterinfo:  # 设置英文标题和主题词, 本科生不需要填写
   keywords: "Keywords 论文主题词"
 ```
 
-# Fonts
-You need to install `SimSun`, `SimHei`, `FangSong` fonts if you are you not using the Windows system. You can download them from [StellarCN/scp_zh](https://github.com/StellarCN/scp_zh/tree/master/fonts), I do not encourage you to do it.
 
-The latex files in the project are copied  from [GH1995/RUC-thesis-template-for-LaTeX](https://github.com/GH1995/RUC-thesis-template-for-LaTeX). 
+# Compile to PDF
 
-
+```
+rmarkdown::render_site(output_format = 'bookdown::pdf_book', encoding = 'UTF-8')
+```
